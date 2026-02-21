@@ -52,9 +52,13 @@ public class AuthService {
             // Fast2SMS URL (OTP Route)
             // variables_values: Ye OTP hai jo message me jayega
             // numbers: Mobile number
+            // String url = "https://www.fast2sms.com/dev/bulkV2?authorization=" + apiKey + 
+            //              "&route=otp&variables_values=" + otp + 
+            //              "&flash=0&numbers=" + cleanNumber;
+
             String url = "https://www.fast2sms.com/dev/bulkV2?authorization=" + apiKey + 
-                         "&route=otp&variables_values=" + otp + 
-                         "&flash=0&numbers=" + cleanNumber;
+                         "&route=v3&variables_values=" + otp + 
+                         "&numbers=" + cleanNumber;
 
             // API Call
             String response = restTemplate.getForObject(url, String.class);
