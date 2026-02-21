@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/messages")
-@CrossOrigin(origins = "*") // React se request allow karne ke liye
+@CrossOrigin(origins = {"http://localhost:3000", "https://gupshup-frontend.vercel.app"})
 public class MessageController {
 
     @Autowired

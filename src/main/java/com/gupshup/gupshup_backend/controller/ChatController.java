@@ -19,7 +19,7 @@ import java.time.Instant;
 import java.util.List;
 
 @Controller
-@CrossOrigin(origins = "*") 
+@CrossOrigin(origins = {"http://localhost:3000", "https://gupshup-frontend.vercel.app"})
 public class ChatController {
 
     @Autowired

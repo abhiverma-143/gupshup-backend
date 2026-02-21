@@ -19,7 +19,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/files")
-@CrossOrigin(origins = "*") // Frontend se request allow karne ke liye
+@CrossOrigin(origins = {"http://localhost:3000", "https://gupshup-frontend.vercel.app"})
 public class FileUploadController {
 
     // Folder jahan files save hongi
@@ -77,7 +77,8 @@ public class FileUploadController {
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
             // Frontend ko wapas bhejne ke liye URL
-            String fileUrl = "http://localhost:8081/uploads/" + safeFileName;
+            // नई लाइन
+            String fileUrl = "https://gupshup-backend-81q6.onrender.com/uploads/" + safeFileName;
             
             Map<String, String> response = new HashMap<>();
             response.put("fileUrl", fileUrl);
