@@ -47,12 +47,14 @@ public class AuthService {
     // 📩 REAL SMS FUNCTION
     private void sendSms(String phoneNumber, String otp) {
         try {
+
+            String cleanNumber = phoneNumber.replace("+91", "").replaceAll("\\s+", "");
             // Fast2SMS URL (OTP Route)
             // variables_values: Ye OTP hai jo message me jayega
             // numbers: Mobile number
             String url = "https://www.fast2sms.com/dev/bulkV2?authorization=" + apiKey + 
                          "&route=otp&variables_values=" + otp + 
-                         "&flash=0&numbers=" + phoneNumber;
+                         "&flash=0&numbers=" + cleanNumber;
 
             // API Call
             String response = restTemplate.getForObject(url, String.class);
